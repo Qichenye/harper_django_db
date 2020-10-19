@@ -26,12 +26,13 @@ SECRET_KEY = ')uv+(w_bh6kgf6mfo+z_&ztb_de3du_ajx0_icvewkl@n*&orj'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['10.0.2.2', '127.0.0.1']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'rest_framework',
     'dbtest.apps.DbtestConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -71,6 +72,14 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'djangoinit.wsgi.application'
 
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ]
+}
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
